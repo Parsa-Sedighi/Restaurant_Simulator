@@ -1,3 +1,10 @@
-Bread.   ======================
-Cheese. ------------------------
-Bread.   ======================
+Would you like protein? 
+
+What size sandwich would you like?
+Hot or cold?
+"What protein would you like?"
+"Would you like cheese?"
+"What kind of cheese?"
+"Would you like sauce?"
+"What kind of sauce?"
+"Confirming your order...", true

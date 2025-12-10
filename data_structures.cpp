@@ -1,3 +1,6 @@
+#include <string>
+#include <iostream>
+#include <fstream>
 /*
 Class for data structures to be implemented:
 
@@ -11,12 +14,14 @@ Graph
 
 */
 
-// Array
+// List
+
 
 // Queues
+template <typename T>
 class QueueNode {
 public:
-   int data;
+   T data;
    QueueNode* next;
    
    QueueNode(int dataValue, QueueNode* nextNode = nullptr) {
@@ -25,6 +30,7 @@ public:
    }
 };
 
+template <typename T>
 class LinkedL_Queue{
 private:
    QueueNode* front;
@@ -73,7 +79,6 @@ public:
             newNode->next = front;
             front = newNode;
         }
-        
         return true;
     }
     
@@ -81,6 +86,41 @@ public:
 };
 
 // Trees
+struct tree {
+   std::string data;
+   tree* right = nullptr;
+   tree* left  = nullptr;
+
+   ~ tree(){
+      delete right;
+      delete left;
+   }
+
+};
+
+tree* make_tree(std::string data, tree* leftNode, tree* rightNode) {
+   tree* node = new tree;
+   node->data = data;
+   node->left = leftNode;
+   node->right = rightNode;
+   return node;
+}
+
+tree* make_tree(std::string data) {
+   tree* node = new tree;
+   node->data = data;
+   return node;
+}
+
+std::ostream& operator<< (std::ostream&os, tree* node){
+   if(node == nullptr)
+   {
+      return os;
+   }
+   os << node->data << "\n" << node->left << node->right;
+   return os;
+}
+
 
 // Hash Table
 
