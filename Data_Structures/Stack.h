@@ -8,7 +8,6 @@
 #include <cstddef>
 #include <iostream>
 
-class QGraphicsScene;
 
 class Stack {
 public:
@@ -29,7 +28,6 @@ public:
     // Print bottom -> top
     void print() const;
 
-    void drawToScene(QGraphicsScene* scene, int startX, int startY, int width, int heightPerItem) const;
 
 private:
     std::vector<std::string> data_;

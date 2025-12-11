@@ -47,3 +47,4 @@ void Stack::print() const {
         std::cout << data_[i] << "\n";
     }
 }
+

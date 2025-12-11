@@ -4,20 +4,20 @@
 
 Inventory::Inventory() {
     // initial stock
-    items["Italian"]   = 10;
-    items["White"]     = 10;
-    items["Wheat"]     = 10;
-    items["turkey"]    = 20;
-    items["ham"]       = 20;
-    items["chicken"]   = 20;
-    items["cheddar"]   = 15;
-    items["swiss"]     = 15;
-    items["provolone"] = 15;
-    items["lettuce"]   = 30;
-    items["tomato"]    = 30;
-    items["onion"]     = 30;
-    items["mayo"]      = 10;
-    items["mustard"]   = 10;
+    items["Italian"]   = 1;
+    items["White"]     = 1;
+    items["Wheat"]     = 1;
+    items["turkey"]    = 1;
+    items["ham"]       = 1;
+    items["chicken"]   = 1;
+    items["cheddar"]   = 1;
+    items["swiss"]     = 1;
+    items["provolone"] = 1;
+    items["lettuce"]   = 1;
+    items["tomato"]    = 1;
+    items["onion"]     = 1;
+    items["mayo"]      = 1;
+    items["mustard"]   = 1;
     items["special sauce"] = 5;
 }
 
@@ -54,6 +54,4 @@ void Inventory::print() const {
     }
 }
 
-void drawToScene(QGraphicsScene* scene, int startX, int startY, int width, int heightPerItem) const{
-    
-}
+
