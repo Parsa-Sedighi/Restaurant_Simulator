@@ -57,7 +57,20 @@ int main() {
         recipes.push_back(r);
     }
 
-    // Recipe 2: Veggie Delight
+    // Recipe 2: 
+    {
+        Recipe r;
+        r.name           = "Grilled Cheese";
+        r.base.bread     = "wheat";
+        r.base.protein   = "veggie";
+        r.base.cheese    = "cheddar";
+        //r.base.veggies.push_back("lettuce");
+        //r.base.veggies.push_back("tomato");
+        //r.base.veggies.push_back("onion");
+        recipes.push_back(r);
+    }
+
+    // Recipe 3: Veggie Delight
     {
         Recipe r;
         r.name           = "Veggie Delight";
@@ -69,6 +82,8 @@ int main() {
         r.base.veggies.push_back("onion");
         recipes.push_back(r);
     }
+
+    
 
     // Build the decision tree once
     DecisionNode* root = buildOrderingTree();
