@@ -1,4 +1,4 @@
-# Deli Simulator
+# Deli/Restaurant Simulator
 
 This project is a simple C++ console “deli” that lets a user order sandwiches either from a **menu** or by building a **custom** sandwich through a series of questions.
 

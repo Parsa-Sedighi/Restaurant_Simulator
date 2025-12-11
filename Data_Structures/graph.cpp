@@ -1,6 +1,5 @@
-// Data_Structures/Graph.cpp
 #include "graph.h"
-#include "hash.h"   // Inventory
+#include "hash.h"   
 #include <queue>
 #include <unordered_set>
 

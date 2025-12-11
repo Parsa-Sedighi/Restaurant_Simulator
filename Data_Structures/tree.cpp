@@ -1,4 +1,3 @@
-// Data_Structures/tree.cpp
 #include <iostream>
 #include "tree.h"
 #include "hash.h"
