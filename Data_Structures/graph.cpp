@@ -1,5 +1,6 @@
+// Data_Structures/Graph.cpp
 #include "graph.h"
-#include "hash.h"   // for Inventory
+#include "hash.h"   // Inventory
 #include <queue>
 #include <unordered_set>
 
@@ -17,7 +18,6 @@ bool SubstitutionGraph::findAvailableAlternative(const std::string& ingredient,
                                                  const Inventory& inv,
                                                  std::string& resultName) const
 {
-    // BFS to find first available ingredient
     std::queue<std::string> q;
     std::unordered_set<std::string> visited;
 
@@ -28,43 +28,37 @@ bool SubstitutionGraph::findAvailableAlternative(const std::string& ingredient,
         std::string current = q.front();
         q.pop();
 
-        // Check if this ingredient is available in inventory
-        if (inv.has(current, 1)) {        // assumes Inventory::has(name, amount)
+        // Your Inventory has: bool has(const std::string&, int amount = 1) const;
+        if (inv.has(current, 1)) {
             resultName = current;
             return true;
         }
 
-        // Otherwise, enqueue neighbors (substitutes)
         auto it = adj_.find(current);
         if (it != adj_.end()) {
             for (const std::string& neighbor : it->second) {
-                if (visited.insert(neighbor).second) { // newly inserted
+                if (visited.insert(neighbor).second) {
                     q.push(neighbor);
                 }
             }
         }
     }
 
-    // No available substitute found
+    // No available alternative found
     return false;
 }
 
 bool SubstitutionGraph::useOrSubstitute(const std::string& requested,
                                         Inventory& inv,
-                                        int amount,
                                         std::string& usedIngredient) const
 {
     std::string candidate;
-
-    // Step 1: find an ingredient (original or substitute) that is available
     if (!findAvailableAlternative(requested, inv, candidate)) {
-        // Nothing available
-        return false;
+        return false; // nothing available
     }
 
-    // Step 2: actually consume it from inventory
-    if (!inv.use(candidate, amount)) {
-        // Inventory changed after check or not enough for 'amount'
+    // Your Inventory::use(const std::string& name) consumes 1 unit
+    if (!inv.use(candidate)) {
         return false;
     }
 

@@ -1,3 +1,4 @@
+// Data_Structures/Graph.h
 #ifndef GRAPH_H
 #define GRAPH_H
 
@@ -5,38 +6,34 @@
 #include <unordered_map>
 #include <vector>
 
-// Forward declaration: Inventory is defined in hash.h
+// Inventory is defined in hash.h
 struct Inventory;
 
-// Graph for ingredient substitutions
+// Graph modeling ingredient substitutions
+// Example: "swiss" -> "cheddar" means cheddar can replace swiss.
 class SubstitutionGraph {
 public:
-    // Add a directed substitution:
-    // "ingredient" can be replaced by "substitute"
+    // Add a directed edge: ingredient can be replaced by substitute
     void addSubstitution(const std::string& ingredient,
                          const std::string& substitute);
 
-    // Remove all nodes/edges
     void clear();
 
-    // Find an ingredient (original or substitute) that is available
-    // Returns true and writes result into 'resultName' if found.
-    // Uses a BFS/graph search to avoid cycles.
+    // Find an available ingredient (original or substitute) in inventory.
+    // Returns true and writes the chosen ingredient into resultName.
     bool findAvailableAlternative(const std::string& ingredient,
                                   const Inventory& inv,
                                   std::string& resultName) const;
 
-    // Convenience: try to consume 'amount' of ingredient from inventory.
-    // If the requested ingredient is out of stock, tries substitutes via the graph.
-    // Returns true if something was successfully used, and writes the actual
-    // ingredient name used into 'usedIngredient'.
+    // Try to use requested ingredient from inventory.
+    // If it's out, use a substitute found via the graph.
+    // Returns true if something was actually used, and writes the name used.
     bool useOrSubstitute(const std::string& requested,
                          Inventory& inv,
-                         int amount,
                          std::string& usedIngredient) const;
 
 private:
-    // adjacency list: ingredient -> list of possible substitutes (in preference order)
+    // adjacency list: ingredient -> list of possible substitutes
     std::unordered_map<std::string, std::vector<std::string>> adj_;
 };
 

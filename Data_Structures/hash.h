@@ -5,6 +5,9 @@
 #include <unordered_map>
 #include <string>
 #include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cctype>
 
 struct Inventory {
     std::unordered_map<std::string, int> items;
